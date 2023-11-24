@@ -28,6 +28,10 @@ public class ControlBanda {
         String msgSalida = "";
 
         List<Concierto> conciertoConsulta = banda.getConciertos();
+        if (conciertoConsulta.isEmpty()) {
+            msgSalida+="No hay conciertos registrados";
+        }
+
         for (Concierto concierto : conciertoConsulta) {
             msgSalida += concierto.toString() + "\n";
         }
@@ -47,6 +51,14 @@ public class ControlBanda {
             return false;
         }
 
+    }
+
+    public boolean actualizarInfoBanda(String nombre, Genero genero, String fecha, List<String> fotos) {
+        banda.setNombre(nombre);
+        banda.setGenero(genero);
+        banda.setFechaCreacion(fecha);
+        banda.setFotos(fotos);
+        return true;
     }
 
     public boolean agregarMiembro(String nombre, Rol rol, List<String> instrumentos) {

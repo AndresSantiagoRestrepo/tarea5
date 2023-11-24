@@ -26,7 +26,7 @@ public class ControlAlbum {
 
     }
 
-    public boolean agregarAlbum(String nombre, String fecha, List<Cancion> canciones) {
+    public boolean agregarAlbum(String nombre, String fecha) {
 
         // Si el album existe
         if (validarAlbumRegistrado(nombre)) {
@@ -34,13 +34,14 @@ public class ControlAlbum {
         }
         // Si no existe entonces puedo seguir el proceso
         else {
-            Album nuevoAlbum = new Album(nombre, fecha, canciones);
+            Album nuevoAlbum = new Album(nombre, fecha);
             banda.agregarAlbumABanda(nuevoAlbum);
             return true;
         }
     }
 
-    public boolean agregarCancionAlbum(String nombreAlbum, String nombreCancion, double duracion) throws AlbumException{
+    public boolean agregarCancionAlbum(String nombreAlbum, String nombreCancion, double duracion)
+            throws AlbumException {
         // Si el album existe, entonces busco en la lista de cancioes y valido que no
         // exista
         if (validarAlbumRegistrado(nombreAlbum)) {
@@ -61,21 +62,21 @@ public class ControlAlbum {
         }
     }
 
-    public String consultarCancionesAlbum(String nombreAlbum) throws AlbumException{
-        String msgSalida="";
+    public String consultarCancionesAlbum(String nombreAlbum) throws AlbumException {
+        String msgSalida = "";
         // Listar todasd la canciones del album
         if (validarAlbumRegistrado(nombreAlbum)) {
             Album albumConsultado = banda.getAlbum(nombreAlbum);
             List<Cancion> canciones = albumConsultado.getCanciones();
 
             for (Cancion cancion : canciones) {
-                msgSalida+="\n"+ cancion.toString();
+                msgSalida += "\n" + cancion.toString();
             }
 
         } else {
             // Si el album no existe
             String msg = "El album ingresado no existe";
-            msgSalida= msg;
+            msgSalida = msg;
         }
         return msgSalida;
 

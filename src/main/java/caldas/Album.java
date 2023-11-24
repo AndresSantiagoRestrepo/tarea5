@@ -1,5 +1,6 @@
 package caldas;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Album {
@@ -7,10 +8,10 @@ public class Album {
     String fecha;
     List<Cancion> canciones;
 
-    public Album(String nombre, String fecha, List<Cancion> canciones) {
+    public Album(String nombre, String fecha) {
         this.nombre = nombre;
         this.fecha = fecha;
-        this.canciones = canciones;
+        this.canciones = new ArrayList<Cancion>();
     }
 
     @Override
