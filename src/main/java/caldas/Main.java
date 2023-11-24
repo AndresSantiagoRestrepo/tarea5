@@ -77,16 +77,20 @@ public class Main {
                     System.out.println("Escriba separado por comas los instrumentos que toca");
                     String instrumentos = scan.next();
                     List<String> lista = Arrays.asList(instrumentos);
-                    if (ctrl.agregarMiembro(nombreMiembro, Rol.valueOf(rol.toUpperCase()), lista)) {
-                        System.out.println("--------------*--------");
-                        System.out.println("Miembro agregado con exito");
-                        System.out.println("--------------*--------");
+                    try {
+                        if (ctrl.agregarMiembro(nombreMiembro, Rol.valueOf(rol.toUpperCase()), lista)) {
+                            System.out.println("--------------*--------");
+                            System.out.println("Miembro agregado con exito");
+                            System.out.println("--------------*--------");
 
-                    } else {
-                        System.out.println("--------------*--------");
-                        System.out.println("No se agregó el miembro");
-                        System.out.println("--------------*--------");
+                        } else {
+                            System.out.println("--------------*--------");
+                            System.out.println("No se agregó el miembro");
+                            System.out.println("--------------*--------");
 
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Error, el rol no es vàlido");
                     }
 
                     break;

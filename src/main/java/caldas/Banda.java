@@ -83,7 +83,7 @@ public class Banda {
             salida = false;
         } else {
             for (Miembro miembro : miembros) {
-                if (miembro.getNombre().equals(nombre)) {
+                if (miembro.getNombre().toUpperCase().equals(nombre.toUpperCase())) {
                     salida = true;
                 } else {
                     salida = false;
