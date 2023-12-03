@@ -13,6 +13,27 @@ public class Banda {
     List<Album> albums;
     List<Concierto> conciertos;
 
+    /**
+     * Contructor para banda, esta recibe nombre, genero y fecha de creacion, pero
+     * las listas de fotos, miembros,
+     * albums y conciertos se inicializan vacias para que sean modificadas mediantes
+     * los metodos del caso de uso,
+     * se hace asi porque logicamente es mas facil trabajar con mas orden los
+     * elementos de las listas inicializadas desde 0
+     * que si lo hicieramos metiendo listas de miembros, listas de fotos y listas de
+     * albums en el constructor
+     * 
+     * @param nombre        El nombre de la banda que se desea crear, esta será
+     *                      administrada
+     *                      por los diferentes controladores segun las operaciones
+     *                      que se deseen realizar
+     * @param genero        El genero de la banda, este debe ser un genero de los ya
+     *                      definidos
+     *                      en la enumeracion "Genero"
+     * @param fechaCreacion La fecha de creacion de la banda, debe cumplir con el
+     *                      formato DD/MM/AA
+     */
+
     public Banda(String nombre, Genero genero, String fechaCreacion) {
         this.nombre = nombre;
         this.genero = genero;
@@ -22,6 +43,19 @@ public class Banda {
         this.albums = new ArrayList<Album>();
         this.conciertos = new ArrayList<Concierto>();
     }
+
+    /**
+     * Este metodo permite buscar un album desntro de la lista de albums de la
+     * banda, esto permite realizar validaciones
+     * que se necesitarán para poder trabajar sobre la creacion de canciones y
+     * albums
+     * 
+     * @param nombre El nombre del album que se desea buscar dentro de la lista de
+     *               albums de la banda
+     * @return En el caso de que se encuentre el album dentro de la banda, se
+     *         retorna un valor de True, en
+     *         el caso contrario, se retorna falso
+     */
 
     public boolean buscarAlbum(String nombre) {
         // Si el album existe, retorna True
@@ -40,6 +74,18 @@ public class Banda {
         }
         return salida;
     }
+
+    /**
+     * Este metodo permite realizar la busqueda de un concierto que se encuentre
+     * dentro de la lista de conciertos de la banda,
+     * esto permite realizar operaciones sobre conciertos, como la creacion
+     * 
+     * @param nombre El nombre del concierto que se desea buscar dentro de la lista
+     *               de conciertos de la banda
+     * @return retorna un valor de True si ese nombre se encontró dentro de la lista
+     *         de conciertos, retorna
+     *         un valor de false si no encuentra el nombre guardado
+     */
 
     public boolean buscarConcierto(String nombre) {
         // Si el concierto existe, retorna True
@@ -60,8 +106,21 @@ public class Banda {
     }
 
     public List<Concierto> getConciertos() {
-    return this.conciertos;
+        return this.conciertos;
     }
+
+    /**
+     * Este metodo es similar a una validacion, pero la diferencia es que aqui
+     * despues de la busqueda,
+     * no se retorna un valor de True o False si lo encuentra, sino que devuelve el
+     * objeto album
+     * que se estaba buscando, esto para realizar operaciones sobre este album
+     * 
+     * @param nombre Nombre del album que se desea obtener
+     * @return En caso de que el album exista, se retorna el objeto Album que se
+     *         buscaba, de lo contrario se retorna
+     *         un valor de null
+     */
 
     public Album getAlbum(String nombre) {
 
